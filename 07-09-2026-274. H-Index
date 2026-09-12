@@ -49,3 +49,16 @@ class Solution(object):
                 return i
 
         return 0
+Solution 2: Optimal
+
+class Solution:
+    def hIndex(self, citations):
+        
+        citations.sort()  
+        
+        for i in range(len(citations)):
+            paper_left = len(citations) - i
+
+            if citations[i] >= paper_left:
+                return paper_left
+        return 0
